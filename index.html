@@ -7,308 +7,175 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2685.1">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Alifpay API Documentation (English)&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>pre { background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>table { border-collapse: collapse; width: 100%; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>th { background-color: #f2f2f2; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h1, h2, h3 { color: #333; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Alifpay API Documentation (English Translation)&lt;/h1&gt;</p>
-<p class="p1">&lt;p&gt;This is a cloned and translated version of the content from &lt;a href="https://docs.alifpay.uz/"&gt;https://docs.alifpay.uz/&lt;/a&gt;. The original site appears to be a single-page or JavaScript-rendered documentation site in Russian, with references to additional method pages (e.g., /checkout, /hold, /cards, /payments). Due to technical limitations in fetching dynamic content, only the core introductory and foundational sections were extractable. These have been fully translated to English while preserving the original structure, headings, code blocks, and tables. External links and relative paths are retained as-is for reference.&lt;/p&gt;</p>
-<p class="p1">&lt;hr /&gt;</p>
-<p class="p1">&lt;h2&gt;Introduction&lt;/h2&gt;</p>
-<p class="p1">&lt;p&gt;Alifpay provides digital products with financial API tools for working with cards and accepting online payments. Examples of tools include acquiring, transaction counting and viewing card usage history, fund holding, card tokenization, and p2p transfers between cards.&lt;/p&gt;</p>
-<p class="p1">&lt;h3&gt;&lt;a href="#interaction"&gt;Interaction&lt;/a&gt;&lt;/h3&gt;</p>
-<p class="p1">&lt;p&gt;To start using the API, you need to &lt;a href="https://alifpay.uz/"&gt;obtain&lt;/a&gt; an authorization token for the sandbox and production environment, study the main elements, functionality, and &lt;a href="/checkout"&gt;API methods&lt;/a&gt;.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;For simplifying integration during development, it is recommended to use the API sandbox, where test cards are available for processing various scenarios (for example, when the card is blocked or there are insufficient funds on it). During sandbox operation, real funds on cards are not used.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;&lt;a href="https://alifpay.uz/"&gt;Get API Token&lt;/a&gt;&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;API Address&lt;/h4&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;https://api.alifpay.uz/v2</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h3&gt;&lt;a href="#authorization"&gt;Authorization&lt;/a&gt;&lt;/h3&gt;</p>
-<p class="p1">&lt;p&gt;Upon connecting to the system, the API client is issued an authorization token, which is used to call private methods. To authorize API requests, the &lt;code&gt;Token&lt;/code&gt; HTTP header is used, in which the obtained token must be passed as the value.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;Different tokens are used for requests to the production environment and the sandbox.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Example Request&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;Below is an example of a raw request using a token for authorization (see the &lt;code&gt;Token&lt;/code&gt; header).&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Raw Request&lt;/h4&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;POST /watchAnime HTTP/1.1</p>
-<p class="p1">Host: api.alifpay.uz</p>
-<p class="p1">Token: Yml0Lmx5LzN4WW9XeWc=</p>
-<p class="p1">...</p>
-<p class="p1">Content-Type: application/json</p>
-<p class="p2"><br></p>
-<p class="p1">{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"msg": "secured request"</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h3&gt;&lt;a href="#requests-and-responses"&gt;Requests and Responses&lt;/a&gt;&lt;/h3&gt;</p>
-<p class="p1">&lt;p&gt;The API is an &lt;a href="https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/"&gt;HTTP-based RPC&lt;/a&gt; (remote procedure call) and is similar to &lt;a href="https://www.jsonrpc.org/specification"&gt;JSON-RPC 2.0&lt;/a&gt;. To call a method (procedure), the method name must be passed in the URI. Every HTTP request must use the &lt;code&gt;POST&lt;/code&gt; method. Requests are accepted with a body in JSON format. All valid responses have an HTTP response code of &lt;code&gt;200 - OK&lt;/code&gt;. In case of an error, a response with a &lt;a href="#errors"&gt;standard error body&lt;/a&gt; containing a code and message is returned.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Request&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;Below is an example of calling the &lt;code&gt;watchAnime&lt;/code&gt; procedure.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;POST&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;/watchAnime&lt;/p&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"name": "Naruto",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"times": 10</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h4&gt;Response&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;Below are examples of successful and &lt;a href="#errors"&gt;unsuccessful&lt;/a&gt; responses.&lt;/p&gt;</p>
-<p class="p1">&lt;h5&gt;Successful&lt;/h5&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"msg": "watching"</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h5&gt;Unsuccessful&lt;/h5&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"error": {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"code": 1002,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"message": "unauthorized"</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h3&gt;&lt;a href="#errors"&gt;Errors&lt;/a&gt;&lt;/h3&gt;</p>
-<p class="p1">&lt;p&gt;Errors may occur when interacting with the API. Errors are valid API responses that should be taken into account during integration for automatic handling. Such errors include, for example, validation errors, business errors, and internal service errors.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;In such cases, the API responses still indicate the status code &lt;code&gt;200 - OK&lt;/code&gt;.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;&lt;code&gt;error&lt;/code&gt; Structure&lt;/h4&gt;</p>
-<p class="p1">&lt;ul&gt;</p>
-<p class="p1">&lt;li&gt;</p>
-<p class="p1">&lt;p&gt;Name&lt;br /&gt;</p>
-<p class="p1">&lt;code&gt;code&lt;/code&gt;&lt;br /&gt;</p>
-<p class="p1">Type&lt;br /&gt;</p>
-<p class="p1">integer&lt;br /&gt;</p>
-<p class="p1">Description&lt;br /&gt;</p>
-<p class="p1">Error code, which can be used for automatic handling.&lt;/p&gt;</p>
-<p class="p1">&lt;/li&gt;</p>
-<p class="p1">&lt;li&gt;</p>
-<p class="p1">&lt;p&gt;Name&lt;br /&gt;</p>
-<p class="p1">&lt;code&gt;message&lt;/code&gt;&lt;br /&gt;</p>
-<p class="p1">Type&lt;br /&gt;</p>
-<p class="p1">string&lt;br /&gt;</p>
-<p class="p1">Description&lt;br /&gt;</p>
-<p class="p1">Message, a human-readable explanation of the error in a specific case.&lt;/p&gt;</p>
-<p class="p1">&lt;/li&gt;</p>
-<p class="p1">&lt;/ul&gt;</p>
-<p class="p1">&lt;h4&gt;Error Codes&lt;/h4&gt;</p>
-<p class="p1">&lt;table&gt;</p>
-<p class="p1">&lt;thead&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;th&gt;Code&lt;/th&gt;</p>
-<p class="p1">&lt;th&gt;Description&lt;/th&gt;</p>
-<p class="p1">&lt;th&gt;Explanation and Examples&lt;/th&gt;</p>
-<p class="p1">&lt;th&gt;Retry Possible?&lt;/th&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;/thead&gt;</p>
-<p class="p1">&lt;tbody&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1001&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid request body&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid JSON, invalid attribute type&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1002&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Unauthorized request&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid merchant token in header&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1003&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Internal/unknown error&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;-&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1004&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Not found&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Card, payment, etc., not found&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1005&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid parameters&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid amount, empty parameter&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1007&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Denied&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Operation execution denied&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1100&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid OTP&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;-&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1101&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;OTP expired&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;-&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1102&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid card data&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Invalid card number, non-existent card, or card number does not match expiration date&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1103&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Card expired&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;-&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1104&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;SMS notifications not enabled for card&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Enabled by the cardholder at the bank (or ATM), required for sending confirmation codes and transaction notifications&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1105&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Duplication&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;-&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1106&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;OTP entry attempts exhausted&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;-&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;No&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1107&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Card blocked&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;May be blocked by the user, by the bank, or automatically as a result of certain operations&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1108&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Insufficient funds on card&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;For example, during &lt;a href="/hold"&gt;holding&lt;/a&gt; or other operations where operation status is not accessible&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes, with different ID&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1109&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Limit exceeded&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Limit exceeded for sending invoice via SMS to phone number&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1110&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Phone number does not match SMS notification phone&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Phone number specified during &lt;a href="/cards#poluchenie-tokena"&gt;tokenization&lt;/a&gt; does not match the phone number for which SMS notifications are enabled on the card&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Yes&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;/tbody&gt;</p>
-<p class="p1">&lt;/table&gt;</p>
-<p class="p1">&lt;h4&gt;Error Response&lt;/h4&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"error": {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"code": 1001,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"message": "bad request (invalid 'amount' parameter type)"</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h3&gt;&lt;a href="#sandbox"&gt;Sandbox&lt;/a&gt;&lt;/h3&gt;</p>
-<p class="p1">&lt;p&gt;The sandbox is an isolated replica of the API that is not connected to processing centers and does not work with real cards. During sandbox use, real monetary funds are not used. It is recommended to use the sandbox during API integration.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Cards&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;To test different scenarios during tokenization and fund withdrawal, you can use the test cards listed below, which are available only in the sandbox.&lt;/p&gt;</p>
-<p class="p1">&lt;table&gt;</p>
-<p class="p1">&lt;thead&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;th&gt;Card Number&lt;/th&gt;</p>
-<p class="p1">&lt;th&gt;Description&lt;/th&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;/thead&gt;</p>
-<p class="p1">&lt;tbody&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1234111111111111&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Valid card&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1234666666666666&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Insufficient funds&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1234777777777777&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;SMS notifications not enabled&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;1234999999999999&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Blocked card&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;/tbody&gt;</p>
-<p class="p1">&lt;/table&gt;</p>
-<p class="p1">&lt;p&gt;Use any current date in &lt;code&gt;MMYY&lt;/code&gt; format as the expiration date for the test card, e.g., 0626. To confirm "payment" with a test card, use the code &lt;code&gt;111111&lt;/code&gt;.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;One-time debit or fund holding from a sandbox card is possible up to 5000000000 tiyin. Otherwise, the API will return the corresponding status or error, or other behavior for insufficient card funds depending on the method used.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;PINFL&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;For testing scenarios involving PINFL, you can use the PINFL from the list below. Available only in the sandbox.&lt;/p&gt;</p>
-<p class="p1">&lt;table&gt;</p>
-<p class="p1">&lt;thead&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;th&gt;PINFL&lt;/th&gt;</p>
-<p class="p1">&lt;th&gt;Description&lt;/th&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;/thead&gt;</p>
-<p class="p1">&lt;tbody&gt;</p>
-<p class="p1">&lt;tr&gt;</p>
-<p class="p1">&lt;td&gt;&lt;code&gt;11111111111111&lt;/code&gt;&lt;/td&gt;</p>
-<p class="p1">&lt;td&gt;Valid PINFL&lt;/td&gt;</p>
-<p class="p1">&lt;/tr&gt;</p>
-<p class="p1">&lt;/tbody&gt;</p>
-<p class="p1">&lt;/table&gt;</p>
-<p class="p1">&lt;h3&gt;&lt;a href="#webhooks"&gt;Webhooks&lt;/a&gt;&lt;/h3&gt;</p>
-<p class="p1">&lt;p&gt;A webhook is a notification request about a successful operation (most often a payment) sent to the URL provided by the API client in the initiating request.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Payment Webhook&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;When using the API to create an &lt;a href="/checkout"&gt;invoice&lt;/a&gt; or &lt;a href="/payments"&gt;payment&lt;/a&gt;, a POST request with payment information is sent to the address passed by the API client (usually the &lt;code&gt;webhook_url&lt;/code&gt; field, e.g., when creating an invoice) upon completion of the operation.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Request Verification&lt;/h4&gt;</p>
-<p class="p1">&lt;p&gt;To ensure the request is indeed from Alifpay, a signature is used. The &lt;code&gt;Signature&lt;/code&gt; HTTP header is used to transmit the signature. The signature is an HMACSHA256 hash, with the issued secret key as the key and the request body as the message.&lt;/p&gt;</p>
-<p class="p1">&lt;p&gt;To verify, generate the hash and compare it to the value from the &lt;code&gt;Signature&lt;/code&gt; HTTP header of the incoming webhook request.&lt;/p&gt;</p>
-<p class="p1">&lt;h4&gt;Generating Signature&lt;/h4&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;import hmac</p>
-<p class="p1">import hashlib</p>
-<p class="p1">import base64</p>
-<p class="p2"><br></p>
-<p class="p1">SECRET_KEY = b'secretkey'</p>
-<p class="p2"><br></p>
-<p class="p1">def sign(body):</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return base64.b64encode(hmac.new(SECRET_KEY, body, hashlib.sha256).digest())</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;h4&gt;Verifying Signature&lt;/h4&gt;</p>
-<p class="p1">&lt;pre&gt;&lt;code&gt;alifpay_signature = req.headers["Signature"]</p>
-<p class="p1">webhook_body = req.body</p>
-<p class="p2"><br></p>
-<p class="p1">if sign(body) == alifpay_signature:</p>
-<p class="p1"><span class="Apple-converted-space">  </span># success</p>
-<p class="p1">else:</p>
-<p class="p1"><span class="Apple-converted-space">  </span># failed</p>
-<p class="p1">&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p1">&lt;hr /&gt;</p>
-<p class="p1">&lt;p&gt;&lt;strong&gt;Notes on Clone and Translation:&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1">- &lt;strong&gt;Cloning Approach&lt;/strong&gt;: The content has been replicated in Markdown format for easy readability and portability (e.g., convertible to HTML or other docs formats). Relative links to unresolved subpages (e.g., /checkout for detailed methods) are preserved; in a full clone, these would need manual recreation or further scraping.&lt;br&gt;</p>
-<p class="p1">- &lt;strong&gt;Translation&lt;/strong&gt;: Faithful to the original Russian text, with technical terms (e.g., API concepts, code) left untranslated. Currency units like "tiyin" (Uzbek subunit) are retained.&lt;br&gt;</p>
-<p class="p1">- &lt;strong&gt;Missing Sections&lt;/strong&gt;: Detailed API methods (e.g., checkout, hold, cards, payments) referenced in the content could not be fetched due to potential dynamic loading. If needed, provide more details for deeper extraction.&lt;br&gt;</p>
-<p class="p1">- &lt;strong&gt;Original Source&lt;/strong&gt;: Based on content from &lt;a href="https://docs.alifpay.uz/"&gt;https://docs.alifpay.uz/&lt;/a&gt;. For the live site, visit the original URL.&lt;/p&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="description" content="English translation of Alifpay API Documentation for card processing, payments, and financial tools."&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta property="og:title" content="Alifpay API Documentation (English)"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta property="og:description" content="Cloned and translated guide for integrating Alifpay's financial APIs."&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta property="og:url" content="https://mirobid.github.io/alifpay/"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Alifpay API Documentation (English)&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background: #f8f9fa; color: #333; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1, h2, h3 { color: #1a1a1a; border-bottom: 2px solid #e9ecef; padding-bottom: 5px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; font-family: 'Courier New', monospace; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>pre { background: #f4f4f4; padding: 15px; border-radius: 4px; overflow-x: auto; border-left: 4px solid #007bff; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>table { border-collapse: collapse; width: 100%; margin: 10px 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>th { background-color: #f2f2f2; font-weight: bold; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ul { padding-left: 20px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.toc { background: #e9ecef; padding: 15px; border-radius: 4px; margin-bottom: 20px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.toc h3 { margin-top: 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.toc ul { list-style-type: none; padding: 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.toc li { margin: 5px 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.toc a { text-decoration: none; color: #007bff; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>a { color: #007bff; text-decoration: none; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>a:hover { text-decoration: underline; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>hr { border: none; border-top: 1px solid #ddd; margin: 30px 0; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Alifpay API Documentation (English Translation)&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;This is a cloned and translated version of the content from &lt;a href="https://docs.alifpay.uz/"&gt;https://docs.alifpay.uz/&lt;/a&gt;. The original site appears to be a single-page or JavaScript-rendered documentation site in Russian, with references to additional method pages (e.g., /checkout, /hold, /cards, /payments). Due to technical limitations in fetching dynamic content, only the core introductory and foundational sections were extractable. These have been fully translated to English while preserving the original structure, headings, code blocks, and tables. External links and relative paths are retained as-is for reference.&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="toc"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Table of Contents&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#introduction"&gt;Introduction&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#interaction"&gt;Interaction&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#authorization"&gt;Authorization&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#requests-and-responses"&gt;Requests and Responses&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#errors"&gt;Errors&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#sandbox"&gt;Sandbox&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#webhooks"&gt;Webhooks&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Alifpay provides digital products with financial API tools for working with cards and accepting online payments. Examples of tools include acquiring, transaction counting and viewing card usage history, fund holding, card tokenization, and p2p transfers between cards.&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 id="interaction"&gt;Interaction&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;To start using the API, you need to &lt;a href="https://alifpay.uz/"&gt;obtain&lt;/a&gt; an authorization token for the sandbox and production environment, study the main elements, functionality, and &lt;a href="/checkout"&gt;API methods&lt;/a&gt;.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;For simplifying integration during development, it is recommended to use the API sandbox, where test cards are available for processing various scenarios (for example, when the card is blocked or there are insufficient funds on it). During sandbox operation, real funds on cards are not used.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;a href="https://alifpay.uz/"&gt;Get API Token&lt;/a&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;API Address&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;pre&gt;&lt;code&gt;https://api.alifpay.uz/v2&lt;/code&gt;&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 id="authorization"&gt;Authorization&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Upon connecting to the system, the API client is issued an authorization token, which is used to call private methods. To authorize API requests, the &lt;code&gt;Token&lt;/code&gt; HTTP header is used, in which the obtained token must be passed as the value.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Different tokens are used for requests to the production environment and the sandbox.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Example Request&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Below is an example of a raw request using a token for authorization (see the &lt;code&gt;Token&lt;/code&gt; header).&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Raw Request&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;pre&gt;&lt;code&gt;POST /watchAnime HTTP/1.1</span></p>
+<p class="p1"><span class="s1">Host: api.alifpay.uz</span></p>
+<p class="p1"><span class="s1">Token: Yml0Lmx5LzN4WW9XeWc=</span></p>
+<p class="p1"><span class="s1">...</span></p>
+<p class="p1"><span class="s1">Content-Type: application/json</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"msg": "secured request"</span></p>
+<p class="p1"><span class="s1">}&lt;/code&gt;&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 id="requests-and-responses"&gt;Requests and Responses&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;The API is an &lt;a href="https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/"&gt;HTTP-based RPC&lt;/a&gt; (remote procedure call) and is similar to &lt;a href="https://www.jsonrpc.org/specification"&gt;JSON-RPC 2.0&lt;/a&gt;. To call a method (procedure), the method name must be passed in the URI. Every HTTP request must use the &lt;code&gt;POST&lt;/code&gt; method. Requests are accepted with a body in JSON format. All valid responses have an HTTP response code of &lt;code&gt;200 - OK&lt;/code&gt;. In case of an error, a response with a &lt;a href="#errors"&gt;standard error body&lt;/a&gt; containing a code and message is returned.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Request&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Below is an example of calling the &lt;code&gt;watchAnime&lt;/code&gt; procedure.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;POST /watchAnime&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;pre&gt;&lt;code&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"name": "Naruto",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"times": 10</span></p>
+<p class="p1"><span class="s1">}&lt;/code&gt;&lt;/pre&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Response&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Below are examples of successful and &lt;a href="#errors"&gt;unsuccessful&lt;/a&gt; responses.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h5&gt;Successful&lt;/h5&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;pre&gt;&lt;code&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"msg": "watching"</span></p>
+<p class="p1"><span class="s1">}&lt;/code&gt;&lt;/pre&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h5&gt;Unsuccessful&lt;/h5&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;pre&gt;&lt;code&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"error": {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"code": 1002,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"message": "unauthorized"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1">}&lt;/code&gt;&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 id="errors"&gt;Errors&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Errors may occur when interacting with the API. Errors are valid API responses that should be taken into account during integration for automatic handling. Such errors include, for example, validation errors, business errors, and internal service errors.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;In such cases, the API responses still indicate the status code &lt;code&gt;200 - OK&lt;/code&gt;.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;&lt;code&gt;error&lt;/code&gt; Structure&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;br&gt;&lt;code&gt;code&lt;/code&gt;&lt;br&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;br&gt;integer&lt;br&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;br&gt;Error code, which can be used for automatic handling.&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;br&gt;&lt;code&gt;message&lt;/code&gt;&lt;br&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;br&gt;string&lt;br&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;br&gt;Message, a human-readable explanation of the error in a specific case.&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Error Codes&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;th&gt;Explanation and Examples&lt;/th&gt;&lt;th&gt;Retry Possible?&lt;/th&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1001&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Invalid request body&lt;/td&gt;&lt;td&gt;Invalid JSON, invalid attribute type&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1002&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Unauthorized request&lt;/td&gt;&lt;td&gt;Invalid merchant token in header&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1003&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Internal/unknown error&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1004&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Not found&lt;/td&gt;&lt;td&gt;Card, payment, etc., not found&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1005&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Invalid parameters&lt;/td&gt;&lt;td&gt;Invalid amount, empty parameter&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1007&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Denied&lt;/td&gt;&lt;td&gt;Operation execution denied&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1100&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Invalid OTP&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1101&lt;/code&gt;&lt;/td&gt;&lt;td&gt;OTP expired&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1102&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Invalid card data&lt;/td&gt;&lt;td&gt;Invalid card number, non-existent card, or card number does not match expiration date&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1103&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Card expired&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1104&lt;/code&gt;&lt;/td&gt;&lt;td&gt;SMS notifications not enabled for card&lt;/td&gt;&lt;td&gt;Enabled by the cardholder at the bank (or ATM), required for sending confirmation codes and transaction notifications&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1105&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Duplication&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1106&lt;/code&gt;&lt;/td&gt;&lt;td&gt;OTP entry attempts exhausted&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1107&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Card blocked&lt;/td&gt;&lt;td&gt;May be blocked by the user, by the bank, or automatically as a result of certain operations&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1108&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Insufficient funds on card&lt;/td&gt;&lt;td&gt;For example, during &lt;a href="/hold"&gt;holding&lt;/a&gt; or other operations where operation status is not accessible&lt;/td&gt;&lt;td&gt;Yes, with different ID&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1109&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Limit exceeded&lt;/td&gt;&lt;td&gt;Limit exceeded for sending invoice via SMS to phone number&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1110&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Phone number does not match SMS notification phone&lt;/td&gt;&lt;td&gt;Phone number specified during &lt;a href="/cards#poluchenie-tokena"&gt;tokenization&lt;/a&gt; does not match the phone number for which SMS notifications are enabled on the card&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Error Response&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;pre&gt;&lt;code&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>"error": {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"code": 1001,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"message": "bad request (invalid 'amount' parameter type)"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1">}&lt;/code&gt;&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 id="sandbox"&gt;Sandbox&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;The sandbox is an isolated replica of the API that is not connected to processing centers and does not work with real cards. During sandbox use, real monetary funds are not used. It is recommended to use the sandbox during API integration.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Cards&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;To test different scenarios during tokenization and fund withdrawal, you can use the test cards listed below, which are available only in the sandbox.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Card Number&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1234111111111111&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Valid card&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1234666666666666&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Insufficient funds&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1234777777777777&lt;/code&gt;&lt;/td&gt;&lt;td&gt;SMS notifications not enabled&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr&gt;&lt;td&gt;&lt;code&gt;1234999999999999&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Blocked card&lt;/td&gt;&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Use any current date in &lt;code&gt;MMYY&lt;/code&gt; format as the expiration date for the test card, e.g., 0626. To confirm "payment" with a test card, use the code &lt;code&gt;111111&lt;/code&gt;.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;One-time debit or fund holding from a sandbox card is possible up to 5000000000 tiyin. Otherwise, the API will return the corresponding status or error, or other behavior for insufficient card funds depending on the method used.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;PINFL&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;For testing scenarios involving PINFL, you can use the PINFL from the list below. Available only in the sandbox.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;thead&gt;&lt;tr&gt;&lt;th&gt;PINFL&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;11111111111111&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Valid PINFL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 id="webhooks"&gt;Webhooks&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;A webhook is a notification request about a successful operation (most often a payment) sent to the URL provided by the API client in the initiating request.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Payment Webhook&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;When using the API to create an &lt;a href="/checkout"&gt;invoice&lt;/a&gt; or &lt;a href="/payments"&gt;payment&lt;/a&gt;, a POST request with payment information is sent to the address passed by the API client (usually the &lt;code&gt;web</span></p>
 </body>
 </html>
